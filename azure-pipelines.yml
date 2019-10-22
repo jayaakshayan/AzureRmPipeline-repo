@@ -13,7 +13,7 @@ steps:
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
-    ConnectedServiceName: 'AzureRmPipeline-conn'
+    ConnectedServiceName: 'jayaakshayan1'
     subscriptionName: 'e227edf2-3da2-440f-8df1-b941c39fc240'
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'Resource group'
