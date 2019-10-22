@@ -1,0 +1,23 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    ConnectedServiceName: 'AzureRmPipeline-conn'
+    subscriptionName: 'e227edf2-3da2-440f-8df1-b941c39fc240'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'Resource group'
+    location: 'East US'
+    templateLocation: 'Linked artifact'
+    csmFile: 'CreateAzureStorage/azuredeploy.json'
+    deploymentMode: 'Incremental'
